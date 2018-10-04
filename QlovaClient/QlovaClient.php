@@ -374,7 +374,7 @@ class QlovaClient
      *
      * @return bool
      */
-    protected function sessionEnded() {
+    public function sessionEnded() {
         return $this->sessionEnded;
     }
 
