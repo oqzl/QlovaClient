@@ -1,0 +1,22 @@
+{
+    "name": "oqzl/QlovaClient",
+    "type": "library",
+    "description": "QlovaClient: Clova Extensions Kit Test Client in PHP",
+    "homepage": "https://github.com/oqzl/QlovaClient",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "oqzl\\QlovaClient\\": "QlovaClient/"
+        }
+    },
+    "require": {
+      "ext-json": "*",
+      "ext-curl": "*"
+    },
+    "authors": [
+        {
+            "name": "oqzl",
+            "email": "ke.oqzl@gmail.com"
+        }
+    ]
+}
