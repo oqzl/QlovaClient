@@ -16,7 +16,7 @@
 - ext-curl
 
 ## Usage
-- sample.php 参照
+- [sample.php](https://github.com/oqzl/QlovaClient/blob/master/sample.php) 参照
 
 ## Install
 - composer.json に以下を記述すればインストールできると思います。
@@ -39,7 +39,7 @@
 - プルリク歓迎します！
 
 ## Licence
-- [MIT](https://github.com/tcnksm/tool/blob/master/LICENCE) ということにしています。
+- [MIT](https://github.com/oqzl/QlovaClient/blob/master/LICENSE) ということにしています。
 
 ## Author
 - [oqzl](https://github.com/oqzl)
