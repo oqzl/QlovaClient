@@ -36,12 +36,15 @@ $qci->setExtensionServer('https://clova-extension.example.com/sample/')
     ->sendLaunchRequest();
 
 while (true) {
+    // メッセージ入力待ち
     echo '>>> ';
     $message = trim(fgets(STDIN));
     if ($message === '') {
         continue;
     }
+    // IntentRequest（らしきもの）を送信
     $qci->send($message);
+    // セッション終了判定
     if ($qci->sessionEnded()) {
         break;
     }
