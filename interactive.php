@@ -26,8 +26,8 @@ $qci->setExtensionServer('https://clova-extension.example.com/sample/')
     //   連想配列の値   : falseの場合は $messagePattern の中でキャプチャしたパターン、文字列の場合はその値
     //     例） registerIntent('SampleIntent', '/^(ラーメン|チャーハン)$/', ['menu' => false]); … スロット「menu」には「ラーメン」または「チャーハン」が入る
     //     例） registerIntent('SampleIntent', '/^(僕|私|某|拙者)$/', ['me' => '僕']); … スロット「me」には「僕」が入る
-    //     例） ↓ このパターンだと「12月24日」という発話に対してスロット「month」には「12」、スロット「day」には「24」が入る
-    ->registerIntent('BirthDayIntent', '/^(\\d+)月(\\d+)日$/', ['month' => false, 'day' => false])
+    //     例） ↓ このパターンだと「12/24」という発話に対してスロット「month」には「12」、スロット「day」には「24」が入る
+    ->registerIntent('BirthDayIntent', '!^(\\d+)/(\\d+)$!', ['month' => false, 'day' => false])
 
     // ランダムなセッションID、デバイスID、ユーザIDを生成
     ->newSession()
@@ -36,12 +36,15 @@ $qci->setExtensionServer('https://clova-extension.example.com/sample/')
     ->sendLaunchRequest();
 
 while (true) {
+    // メッセージ入力待ち
     echo '>>> ';
     $message = trim(fgets(STDIN));
     if ($message === '') {
         continue;
     }
+    // IntentRequest（らしきもの）を送信
     $qci->send($message);
+    // セッション終了判定
     if ($qci->sessionEnded()) {
         break;
     }

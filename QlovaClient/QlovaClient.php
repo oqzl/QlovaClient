@@ -84,15 +84,16 @@ class QlovaClient
     /**
      * ビルトインインテントの正常系を登録
      * 複数の発話パターンを認識させたいときはいい感じに正規表現で記述する
+     * インタラクティブモード用に簡易入力を追加（c,h,y,n）
      *
      * @return QlovaClient
      */
     protected function registerBuiltInIntent() {
         return $this
-            ->registerIntent('Clova.CancelIntent', '/^キャンセル$/')
-            ->registerIntent('Clova.GuideIntent',  '/^ヘルプ$/')
-            ->registerIntent('Clova.YesIntent',    '/^はい$/')
-            ->registerIntent('Clova.NoIntent',     '/^いいえ$/');
+            ->registerIntent('Clova.CancelIntent', '/^(c|cancel|キャンセル)$/')
+            ->registerIntent('Clova.GuideIntent',  '/^(h|help|ヘルプ)$/')
+            ->registerIntent('Clova.YesIntent',    '/^(y|yes|はい)$/')
+            ->registerIntent('Clova.NoIntent',     '/^(n|no|いいえ)$/');
     }
 
     /**
