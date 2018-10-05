@@ -24,8 +24,8 @@ QlovaClient::getInstance()
     //   連想配列の値   : falseの場合は $messagePattern の中でキャプチャしたパターン、文字列の場合はその値
     //     例） registerIntent('SampleIntent', '/^(ラーメン|チャーハン)$/', ['menu' => false]); … スロット「menu」には「ラーメン」または「チャーハン」が入る
     //     例） registerIntent('SampleIntent', '/^(僕|私|某|拙者)$/', ['me' => '僕']); … スロット「me」には「僕」が入る
-    //     例） ↓ このパターンだと「12月24日」という発話に対してスロット「month」には「12」、スロット「day」には「24」が入る
-    ->registerIntent('BirthDayIntent', '/^(\\d+)月(\\d+)日$/', ['month' => false, 'day' => false])
+    //     例） ↓ このパターンだと「12/24」という発話に対してスロット「month」には「12」、スロット「day」には「24」が入る
+    ->registerIntent('BirthDayIntent', '/^(\\d+)/(\\d+)$/', ['month' => false, 'day' => false])
 
     // ランダムなセッションID、デバイスID、ユーザIDを生成
     ->newSession()
@@ -34,9 +34,8 @@ QlovaClient::getInstance()
     ->sendLaunchRequest()
 
     // IntentRequest（らしきもの）を送信
-    ->send('9月21日')     // BirthDayIntent が送信される。スロット「month」は「9」、スロット「day」には「21」が入る
-    ->send('はい')        // Clova.YesIntent が送信される
-    ->send('キャンセル'); // Clova.CancelIntent が送信される
+    ->send('9/21') // BirthDayIntent が送信される。スロット「month」は「9」、スロット「day」には「21」が入る
+    ->send('y')    // Clova.YesIntent が送信される
+    ->send('c');   // Clova.CancelIntent が送信される
 
 exit;
-
