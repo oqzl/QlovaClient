@@ -16,7 +16,8 @@
 - ext-curl
 
 ## Usage
-- [sample.php](https://github.com/oqzl/QlovaClient/blob/master/sample.php) 参照
+- バッチ処理モード: [sample.php](https://github.com/oqzl/QlovaClient/blob/master/sample.php) 参照
+- 対話モード: [interactive.php](https://github.com/oqzl/QlovaClient/blob/master/interactive.php) 参照
 
 ## Install
 - composer.json に以下を記述すればインストールできると思います。
