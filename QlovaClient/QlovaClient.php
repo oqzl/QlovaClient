@@ -274,7 +274,7 @@ class QlovaClient
             if (!empty($intentItem['slots'])) {
                 $idx = 1; // $match[0] はマッチしたパターン全体なのでスキップする
                 foreach ($intentItem['slots'] as $name => $delegate) {
-                    if (isset($match[$idx])) {
+                    if ($delegate !== false || isset($match[$idx])) {
                         $slots[$name] = [
                             'name' => $name,
                             'value' => $delegate ?: $match[$idx],
